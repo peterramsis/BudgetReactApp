@@ -1,0 +1,57 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 10px 20px;
+    /* background-color: #4a90e2; */
+    /* color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  }
+  
+  header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4a90e2;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  header .logo h1:hover {
+    color: #f9d342;
+  }
+  
+  header .buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  header .buttons button {
+    background-color: #f9d342;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  header .buttons button:hover {
+    background-color: #fff;
+    color: #4a90e2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  header .buttons .settings-btn {
+    font-size: 1.5rem;
+    padding: 6px 10px;
+  }
+  

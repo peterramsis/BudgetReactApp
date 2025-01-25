@@ -1,0 +1,76 @@
+.container{
+     width: 992px;
+     margin: 0 auto;
+}
+.hero_budget_bg{
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    .overlay{
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        position: absolute;
+        width:100%;
+        height: 400px;
+        top: 0;
+        left: 0;
+    
+    }
+}
+
+.hero_number_budget{
+      margin-top:-152px;
+      flex: 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+
+    .budget_numbers{
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        width: calc(100% / 3);
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding:32px 0 ;
+        &:nth-child(1){
+            background: #16a085;
+        }
+        &:nth-child(2){
+            background: #e74c3c;
+        }
+        &:nth-child(3){
+            background: #2980b9;
+        }
+        .budget_number_money{
+            
+            & > section{
+                
+                display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+            }
+           
+        }
+    }
+   
+}
+
+@media (max-width: 768px){
+    .container{
+        width: 100%;
+        padding: 0 10px;
+    }
+    .hero_number_budget {
+        flex-direction: column;
+        align-items: center;
+       
+       
+    }
+}
