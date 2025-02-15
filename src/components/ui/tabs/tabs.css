@@ -1,0 +1,26 @@
+.tabs_titles{
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+}
+.tabs_titles .tab_title{
+    background: var(--gradient-bg-light);
+    padding: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+}
+.tabs_titles .tab_title.active{
+    transform: scale(1.01);
+    transform-origin:center;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+}
+
+@media screen (max-width: 992px){
+    
+    .tabs_titles .tab_title.active{
+        transform: scale(1.05);
+    }
+}
+.tab_content{
+    margin-top: .5rem;
+}
