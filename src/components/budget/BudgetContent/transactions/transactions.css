@@ -1,0 +1,11 @@
+.transaction_header{
+    display: flex;
+    justify-content: space-between;
+}
+.transaction_title{
+
+}
+.transaction_buttons{
+    display: flex;
+    justify-content: space-between;
+}
