@@ -1,11 +1,67 @@
 .transaction_header{
     display: flex;
     justify-content: space-between;
+    margin: 10px 0;
 }
 .transaction_title{
-
+   color: #fff;
 }
 .transaction_buttons{
     display: flex;
     justify-content: space-between;
+    gap: 14px;
+    select{
+        background: #474646;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        
+        &:hover{
+            background-color: #333333FF;
+        }
+    }
+}
+
+.transaction_item{
+    background-color: #404040;
+    padding: 4px 5px;
+    margin: 10px 0;
+    section{
+        display: flex;
+        justify-content: center;
+            align-items: center;
+    }
+    display: flex;
+    justify-content: space-between;
+
+    .transaction_item_icon{
+        background-color: #16a085;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .transaction_item_data{
+        display: flex;
+        
+                justify-content: start;
+                flex-direction: column;
+                 align-items: start;
+                 padding: 0 21px;
+        h4{
+            color: #fff;
+        }
+        section{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            small{
+                color: #fff;
+            }
+        }
+        
+    }
 }
