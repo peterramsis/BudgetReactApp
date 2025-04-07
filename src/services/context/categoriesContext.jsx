@@ -1,7 +1,8 @@
 import React,{ createContext, useCallback, useEffect, useReducer, useRef } from "react";
 import PropTypes from "prop-types";
-import { deleteTransaction, getTransactions } from "../api/transactions.api";
-export const transactionContext = createContext();
+import { getCategories } from "../api/categories.api";
+
+export const categoriesContext = createContext();
 
 const initialState = {
     data: [],
@@ -29,23 +30,19 @@ const contextReducer = (state, action) => {
                 loading: false,
                 error: action.payload
             };
-        case 'STOP_LOADING':
-            return {
-                ...state,
-                loading: false
-            };    
+     
         default:
             return state;
     }
 };
 
-export const TransactionProvider = ({children}) => {
+export const CategoriesProvider = ({children}) => {
     const [state , dispatch] = useReducer(contextReducer, initialState);
     const isMount = useRef(false);
     const fetchData = useCallback(async () => {
         dispatch({ type: 'FETCH_STATE' });
         try {   
-            const response = await getTransactions();
+            const response = await getCategories();
             if(response.status === 404) {
                 dispatch({ type: 'FETCH_ERROR', payload:  response.message });
             } // تغيير على النص الذي سيتم عرضه عند التحقق من الحالة
@@ -56,19 +53,7 @@ export const TransactionProvider = ({children}) => {
         }
     } , []);
 
-    const handleDelete = async (id) => {
-        try {
-            const response = await deleteTransaction(id);
-            if(response.status === 404) {
-                dispatch({ type: 'FETCH_ERROR', payload:  response.message });
-            } // تغيير على النص الذي سيتم عرضه عند التحقق من الحالة
-            
-            fetchData();
-        }catch (error) {
-            console.error(`2 --${error.message}`);
-            dispatch({ type: 'FETCH_ERROR', payload:  error.message });
-        }
-    }
+   
 
     useEffect(() => {
         if(!isMount.current) {
@@ -79,14 +64,14 @@ export const TransactionProvider = ({children}) => {
     }, [fetchData]);
 
     return (
-        <transactionContext.Provider value={{ ...state , handleDelete }}>
-        {children}
-        </transactionContext.Provider>
+        <categoriesContext.Provider value={{ ...state }}>
+            {children}
+        </categoriesContext.Provider>
     );
 }
-TransactionProvider.propTypes = {
+CategoriesProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-export default TransactionProvider;
+export default CategoriesProvider;
 

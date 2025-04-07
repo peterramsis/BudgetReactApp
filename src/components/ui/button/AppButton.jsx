@@ -13,7 +13,6 @@ AppButton.propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
     type: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']).isRequired,
-    props: PropTypes.node.isRequired,
     size: PropTypes.oneOf(['small', 'normal', 'large']).isRequired,
     block: PropTypes.bool,
 }

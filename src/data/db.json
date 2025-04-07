@@ -1,12 +1,10 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "title": "Rent",
-      "amount": 1000,
-      "type": "income",
-      "category": "3",
-      "date": "2021-10-13"
+      "id": "2",
+      "title": "Business",
+      "category": 1,
+      "amount": "500"
     }
   ],
   "categories": [
@@ -33,14 +31,6 @@
     {
       "id": 6,
       "name": "Savings"
-    },
-    {
-      "id": 7,
-      "name": "Freelance"
-    },
-    {
-      "id": 8,
-      "name": "Business"
     }
   ]
 }

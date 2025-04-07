@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {Tabs} from '../../ui'
 import Tab from '../../ui/tabs/Tab'
 import Transactions from './transactions/transactions'
@@ -18,6 +17,5 @@ const BudgetContent = () => {
   )
 }
 
-BudgetContent.PropTypes = {}
 
 export default BudgetContent

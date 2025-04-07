@@ -1,8 +1,22 @@
 import { CurrencyDollarSimple, Pencil, Trash } from '@phosphor-icons/react';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { AppButton } from '../../../ui';
 import PropTypes from 'prop-types';
-const TransactionItem = ({transaction}) => {
+import { transactionContext } from '../../../../services/context/transactionsContext';
+const TransactionItem = ({transaction , categories}) => {
+    const {handleDelete} = useContext(transactionContext);
+    
+   
+    const currentCategory = useMemo(() =>{
+        const category =categories.find((category)=>{
+            console.log( category.id ,transaction.category);
+            return category.id == transaction.category;
+        });
+        const categoryName = category ? category.name : '';
+        return categoryName;
+    }, [categories, transaction]);
+    
+    
     return (
         <div className='transaction_item'> 
             <section>
@@ -14,7 +28,7 @@ const TransactionItem = ({transaction}) => {
                  <section>
                     <small>{transaction.amount}</small>
                     <small>{transaction.date}</small>
-                    <small>{transaction.category}</small>
+                    <small>{currentCategory}</small>
                  </section>
             </section>
             </section>
@@ -22,7 +36,7 @@ const TransactionItem = ({transaction}) => {
                 <AppButton type='primary' size="small" title="edit">
                   <Pencil size={14} />
                 </AppButton>
-                <AppButton type='danger' size="small" title="delete">
+                <AppButton type='danger' size="small" title="delete" onClick={() =>handleDelete(transaction.id) }>
                    <Trash size={14} />
                 </AppButton>
             </section>
@@ -31,7 +45,8 @@ const TransactionItem = ({transaction}) => {
 }
 
 TransactionItem.propTypes = {
-    transaction: PropTypes.object.isRequired
+    transaction: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
 }
 
 export default TransactionItem;
